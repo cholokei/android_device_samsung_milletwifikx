@@ -61,7 +61,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CM Hardware
-###BOARD_USES_CYANOGEN_HARDWARE := true
+BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
     hardware/cyanogen/cmhw \
     device/samsung/milletwifikx/cmhw
@@ -126,6 +126,10 @@ TARGET_POWERHAL_VARIANT := qcom
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/milletwifikx/rootdir/fstab.qcom
+
+# SELinux
+-include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += device/samsung/milletwifikx/sepolicy
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
