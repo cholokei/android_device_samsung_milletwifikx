@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+LOCAL_PATH := device/samsung/milletwifikx
+
 PRODUCT_CHARACTERISTICS := tablet
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
@@ -24,6 +26,17 @@ $(call inherit-product-if-exists, vendor/samsung/milletwifikx/milletwifikx-vendo
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/milletwifikx/overlay
+
+# Screen density
+PRODUCT_AAPT_CONFIG := large
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_LOCALES += mdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 800
+
+############### Dalvik
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -91,37 +104,11 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0
 
 # Common build.props
-PRODUCT_PROPERTY_OVERRIDES += \
-	audio.offload.buffer.size.kb=32 \
-	audio.offload.gapless.enabled=false \
-	audio.offload.multiple.enabled=false \
-	av.offload.enable=false \
-	av.streaming.offload.enable=false \
-	media.aac_51_output_enabled=true \
-	mm.enable.qcom_parser=3314291 \
-	mm.enable.smoothstreaming=true \
-	ro.qc.sdk.audio.fluencetype=none \
-	use.voice.path.for.pcm.voip=false \
-	ro.bluetooth.hfp.ver=1.6 \
-	ro.qualcomm.bt.hci_transport=smd \
-	camera2.portability.force_api=1 \
-	debug.composition.type=c2d \
-	ro.opengles.version=196608 \
-	ro.sf.lcd_density=160 \
-	persist.gps.qc_nlp_in_use=1 \
-	ro.gps.agps_provider=1 \
-	ro.qc.sdk.izat.premium_enabled=0 \
-	ro.qc.sdk.izat.service_mask=0x0 \
-	persist.timed.enable=true \
-	ro.qualcomm.cabl=0 \
-	ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so \
-	persist.data.netmgrd.qos.enable=false \
-	persist.radio.add_power_save=1 \
-	ro.use_data_netmgrd=false \
-	ro.qc.sdk.gestures.camera=false \
-	ro.qc.sdk.camera.facialproc=false \
-	ro.qc.sdk.sensors.gestures=true \
-	wifi.interface=wlan0
+#PRODUCT_PROPERTY_OVERRIDES += \
+#	ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so \
+#	persist.data.netmgrd.qos.enable=false \
+#	persist.radio.add_power_save=1 \
+#	ro.use_data_netmgrd=false
 
-# Inherit from msm8226-common
-$(call inherit-product, device/samsung/msm8226-common/msm8226.mk)
+# Inherit from qcom-common
+$(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
