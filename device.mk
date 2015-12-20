@@ -228,6 +228,11 @@ PRODUCT_PACKAGES += \
     libwcnss_qmi \
     wcnss_service
 
+# TWRP
+PRODUCT_COPY_FILES += \
+    device/samsung/milletwifikx/twrp.fstab:recovery/root/etc/twrp.fstab \
+    device/samsung/milletwifikx/recovery.fstab:recovery/root/etc/recovery.fstab
+
 # Common build.props
 #PRODUCT_PROPERTY_OVERRIDES += \
 #	ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so \

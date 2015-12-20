@@ -124,7 +124,10 @@ TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/milletwifikx/power/power_e
 TARGET_POWERHAL_VARIANT := qcom
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/milletwifikx/rootdir/fstab.qcom
+#TARGET_RECOVERY_FSTAB := device/samsung/milletwifikx/recovery.fstab
+
+# Recovery fast wipe
+COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
@@ -153,4 +156,19 @@ WLAN_MODULES:
 	ln -sf /system/lib/modules/pronto/pronto_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
 
 TARGET_KERNEL_MODULES += WLAN_MODULES
+
+# TWRP
+DEVICE_RESOLUTION := 800x1280
+RECOVERY_SDCARD_ON_DATA := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TWHAVE_SELINUX := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_NO_SCREEN_TIMEOUT := true
 
