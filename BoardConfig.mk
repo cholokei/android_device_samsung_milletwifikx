@@ -99,8 +99,8 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/milletwifikx/mkbootimg.mk
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
-TARGET_KERNEL_SOURCE := kernel/samsung/millet
-TARGET_KERNEL_CONFIG := milletwifikx_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/milletwifikx
+TARGET_KERNEL_CONFIG := cyanogenmod_milletwifikx_defconfig
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
