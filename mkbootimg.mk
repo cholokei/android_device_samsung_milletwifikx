@@ -43,16 +43,16 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES) $(INSTAL
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_BOOTIMAGE_PARTITION_SIZE),raw)
 	@echo -e ${CL_CYN}"Made boot image: $@"${CL_RST}
 
-## Overload recoveryimg generation: Same as the original, + --dt arg + lzma
-LZMA_RAMDISK := $(PRODUCT_OUT)/ramdisk-recovery-lzma.img
+## Overload recoveryimg generation: Same as the original, + --dt arg + xz
+XZ_RAMDISK := $(PRODUCT_OUT)/ramdisk-recovery-xz.img
 
-$(LZMA_RAMDISK): $(recovery_ramdisk)
-	gunzip -f < $(recovery_ramdisk) | lzma -e > $@
+$(XZ_RAMDISK): $(recovery_ramdisk)
+	gunzip -f < $(recovery_ramdisk) | xz -e > $@
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) $(INSTALLED_DTIMAGE_TARGET) \
-		$(LZMA_RAMDISK) \
+		$(XZ_RAMDISK) \
 		$(recovery_kernel)
 	@echo -e ${CL_CYN}"----- Making recovery image ------"${CL_RST}
-	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --dt $(INSTALLED_DTIMAGE_TARGET) --output $@ --ramdisk $(LZMA_RAMDISK)
+	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) $(BOARD_MKBOOTIMG_ARGS) --dt $(INSTALLED_DTIMAGE_TARGET) --output $@ --ramdisk $(XZ_RAMDISK)
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}
