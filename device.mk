@@ -233,6 +233,10 @@ PRODUCT_COPY_FILES += \
     device/samsung/milletwifikx/twrp.fstab:recovery/root/etc/twrp.fstab \
     device/samsung/milletwifikx/recovery.fstab:recovery/root/etc/recovery.fstab
 
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.product.device=milletwifikx \
+    ro.build.product=milletwifikx
+
 # Common build.props
 #PRODUCT_PROPERTY_OVERRIDES += \
 #	ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so \
