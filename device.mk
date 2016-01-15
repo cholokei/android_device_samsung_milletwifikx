@@ -27,6 +27,11 @@ $(call inherit-product-if-exists, vendor/samsung/milletwifikx/milletwifikx-vendo
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/milletwifikx/overlay
 
+# Device identifier
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.device=SM-T330 \
+    ro.product.model=SM-T330
+
 # Screen density
 PRODUCT_AAPT_CONFIG := large
 PRODUCT_AAPT_PREF_CONFIG := mdpi
