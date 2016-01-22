@@ -88,7 +88,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 EXTENDED_FONT_FOOTPRINT := true
 
 # Init
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/milletwifikx/init/init_millet.c
+TARGET_LIBINIT_DEFINES_FILE := device/samsung/milletwifikx/init/init_millet.cpp
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
 
