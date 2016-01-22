@@ -124,7 +124,7 @@ TARGET_POWERHAL_SET_INTERACTIVE_EXT := device/samsung/milletwifikx/power/power_e
 TARGET_POWERHAL_VARIANT := qcom
 
 # Recovery
-#TARGET_RECOVERY_FSTAB := device/samsung/milletwifikx/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/samsung/milletwifikx/recovery.fstab
 
 # Recovery fast wipe
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD

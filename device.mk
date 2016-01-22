@@ -229,9 +229,8 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 # TWRP
-PRODUCT_COPY_FILES += \
-    device/samsung/milletwifikx/twrp.fstab:recovery/root/etc/twrp.fstab \
-    device/samsung/milletwifikx/recovery.fstab:recovery/root/etc/recovery.fstab
+#PRODUCT_COPY_FILES += \
+#    device/samsung/milletwifikx/recovery.fstab:recovery/root/etc/recovery.fstab
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.product.device=milletwifikx \
